@@ -14,9 +14,7 @@ class ImagePickerHandler {
   CropStyle cropStyle;
 
   ImagePickerHandler(this._listener, this._controller,
-      {this.chooseMutil = false,
-      this.isCrop = true,
-      this.cropStyle = CropStyle.circle});
+      {this.chooseMutil = false, this.isCrop = true, this.cropStyle = CropStyle.circle});
 
   final ImagePicker _picker = ImagePicker();
 
@@ -24,8 +22,7 @@ class ImagePickerHandler {
 
   openCamera() async {
     imagePicker.dismissDialog();
-    final image =
-        await _picker.pickImage(source: ImageSource.camera, imageQuality: 100);
+    final image = await _picker.pickImage(source: ImageSource.camera, imageQuality: 100);
 
     if (chooseMutil) {
       _imagesFile.add(File(image.path));
@@ -65,7 +62,9 @@ class ImagePickerHandler {
         }
       }
     }
-    _listener.userImageList(_imagesFile);
+    if (isCrop == false) {
+      _listener.userImageList(_imagesFile);
+    }
     _imagesFile.clear();
   }
 

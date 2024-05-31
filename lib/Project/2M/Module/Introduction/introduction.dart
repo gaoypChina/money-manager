@@ -59,11 +59,10 @@ class _IntroduceAppState extends State<IntroduceApp> {
                                       height: 350,
                                     ),
                                     Container(
-                                      padding:
-                                          EdgeInsets.only(top: 28, bottom: 16),
+                                      padding: EdgeInsets.only(top: 28, bottom: 16),
                                       child: Text(
                                         IntroPageList[index].title,
-                                        maxLines: 1,
+                                        maxLines: 2,
                                         textAlign: TextAlign.center,
                                         style: FTypoSkin.title1,
                                       ),
@@ -92,9 +91,7 @@ class _IntroduceAppState extends State<IntroduceApp> {
                               margin: EdgeInsets.only(right: 5),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: pageIndex == index
-                                    ? FColorSkin.primaryColor
-                                    : FColorSkin.grey1_background,
+                                color: pageIndex == index ? FColorSkin.primaryColor : FColorSkin.grey1_background,
                               ),
                             ))
                   ],
@@ -107,8 +104,7 @@ class _IntroduceAppState extends State<IntroduceApp> {
                     borderRadius: BorderRadius.circular(20.0),
                     child: Text('Start using Monage', style: FTypoSkin.title5),
                     onPressed: () async {
-                      await CoreRoutes.instance
-                          .navigateAndRemoveFade(PageIndex());
+                      await CoreRoutes.instance.navigateAndRemoveFade(PageIndex());
                     }),
               )
             ],
@@ -120,12 +116,7 @@ class _IntroduceAppState extends State<IntroduceApp> {
 }
 
 List<PageItem> IntroPageList = [
-  PageItem(
-      id: 0,
-      title: 'Welcome to Expense management',
-      subTitle:
-          '',
-      image: 'lib/Assets/Images/intro.png'),
+  PageItem(id: 0, title: 'Welcome to money management app', subTitle: '', image: 'lib/Assets/Images/intro.png'),
   // PageItem(
   //     id: 1,
   //     title: 'Personal expense management',

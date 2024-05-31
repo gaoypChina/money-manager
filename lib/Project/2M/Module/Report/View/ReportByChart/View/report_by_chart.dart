@@ -1,5 +1,6 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:coresystem/Components/base_component.dart';
+import 'package:coresystem/Project/2M/LocalDatabase/Models/wallet_item.dart';
 import 'package:coresystem/Project/2M/Module/Report/View/report_category.dart';
 import 'package:coresystem/Project/2M/Module/Report/Widget/stack_bar_chart.dart';
 import 'package:coresystem/Utils/ConvertUtils.dart';
@@ -203,6 +204,15 @@ class _ReportByChartState extends State<ReportByChart> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  // DropdownButton<WalletItem>(
+                  //   items: <WalletItem>[].map((WalletItem value) {
+                  //     return DropdownMenuItem<WalletItem>(
+                  //       value: value,
+                  //       child: Text(value.title),
+                  //     );
+                  //   }).toList(),
+                  //   onChanged: (_) {},
+                  // ),
                   Padding(
                     padding: const EdgeInsets.only(right: 24.0),
                     child: FFilledButton(

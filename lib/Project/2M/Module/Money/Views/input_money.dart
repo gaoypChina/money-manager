@@ -138,10 +138,12 @@ class _InputMoneyState extends State<InputMoney>
                           final ocr = OcrScan();
                           final rs = await ocr.TakeImgAndOCR();
                           if (rs != null) {
+                            print(rs);
                             isCalculator = false;
                             memory.setStringResult('');
-                            final textMoney =
+                            var textMoney =
                                 rs.replaceAll(RegExp(r'[^\d.]+'), '');
+                            textMoney = textMoney.replaceAll('.', '');
                             print(textMoney);
                             memory.setStringResult(textMoney);
                             setState(() {});

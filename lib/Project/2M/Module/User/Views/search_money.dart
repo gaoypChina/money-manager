@@ -240,7 +240,7 @@ class _SearchMoneyState extends State<SearchMoney> {
                           Padding(
                             padding: const EdgeInsets.all(25.0),
                             child: Text(
-                              'Type something to search',
+                              'Type category to search',
                               style: FTypoSkin.title5
                                   .copyWith(color: FColorSkin.subtitle),
                             ),

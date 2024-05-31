@@ -34,8 +34,7 @@ class AccountIndex extends StatefulWidget {
   State<AccountIndex> createState() => _AccountIndexState();
 }
 
-class _AccountIndexState extends State<AccountIndex>
-    with TickerProviderStateMixin, ImagePickerListener {
+class _AccountIndexState extends State<AccountIndex> with TickerProviderStateMixin, ImagePickerListener {
   UserControl userController = UserControl();
   MoneyController moneyController = Get.find();
   CategoryController categoryController = Get.find();
@@ -47,26 +46,10 @@ class _AccountIndexState extends State<AccountIndex>
     //   'route': CoreRouteNames.ACCOUNT_INFO
     // },
     {'title': 'Category List', 'icon': FFilled.book, 'route': CategoryList()},
-    {
-      'title': 'Report by date',
-      'icon': FFilled.money2,
-      'route': ViewMoneyWDate()
-    },
-    {
-      'title': 'Report by year',
-      'icon': FFilled.pie_chart,
-      'route': ReportByChart()
-    },
-    {
-      'title': 'Report by category',
-      'icon': FFilled.money,
-      'route': ReportWCategories()
-    },
-    {
-      'title': 'Search money',
-      'icon': FFilled.money_collect,
-      'route': SearchMoney()
-    },
+    {'title': 'Report by date', 'icon': FFilled.money2, 'route': ViewMoneyWDate()},
+    {'title': 'Report by year', 'icon': FFilled.pie_chart, 'route': ReportByChart()},
+    {'title': 'Report by category', 'icon': FFilled.money, 'route': ReportWCategories()},
+    {'title': 'Search money', 'icon': FFilled.money_collect, 'route': SearchMoney()},
     {'title': 'Export Excel', 'icon': FFilled.file_excel, 'route': ExportCSV()},
   ];
 
@@ -231,8 +214,7 @@ class _AccountIndexState extends State<AccountIndex>
                   }
                 },
                 padding: EdgeInsets.only(left: 16),
-                border: Border(
-                    bottom: BorderSide(color: FColorSkin.grey3_background)),
+                border: Border(bottom: BorderSide(color: FColorSkin.grey3_background)),
                 avatar: FIcon(
                   icon: item['icon'],
                   size: 20,
@@ -259,8 +241,7 @@ class _AccountIndexState extends State<AccountIndex>
                 children: [
                   Text(
                     'Version ${_packageInfo.version}',
-                    style: FTypoSkin.bodyText2
-                        .copyWith(color: FColorSkin.secondaryText),
+                    style: FTypoSkin.bodyText2.copyWith(color: FColorSkin.secondaryText),
                   )
                 ],
               ),
@@ -269,8 +250,7 @@ class _AccountIndexState extends State<AccountIndex>
                 backgroundColor: FColorSkin.grey4_background,
                 child: Text(
                   'Clear All Data',
-                  style: FTypoSkin.buttonText2
-                      .copyWith(color: FColorSkin.secondaryText),
+                  style: FTypoSkin.buttonText2.copyWith(color: FColorSkin.secondaryText),
                 ),
                 onPressed: () {
                   clearAllData();
@@ -285,11 +265,11 @@ class _AccountIndexState extends State<AccountIndex>
   @override
   userImageList(List<File> _image) {
     // var imgFile = File.fromRawPath();
-    var imgFile = _image[0];
+    var imgFile = _image;
 
     setState(() {
-      UserService.setAvtUsername(imgFile.path);
-      this._imagesFile = imgFile;
+      UserService.setAvtUsername(imgFile.first.path);
+      this._imagesFile = imgFile.first;
     });
   }
 }
